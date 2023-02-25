@@ -1,0 +1,125 @@
+{
+  "questions": [
+    {
+      "question": "Est-ce que les jeunes <br/> croient en l'amour ?",
+      "answers": [
+        {
+          "answer": "Oui",
+          "right": true,
+          "img": "/assets/img/1/amour-oui.svg"
+        },
+        {
+          "answer": "Non",
+          "number": "3",
+          "right": false,
+          "img": "/assets/img/1/amour-non.svg"
+        }
+      ],
+      "answer": {
+        "answer": "Oui",
+        "percentage": "92.9",
+        "img": "/assets/img/1/réponse-oui-amour.svg"
+      }
+    },
+    {
+      "question": "Penses-tu que la fidélité <br/> est importante pour les jeunes ?",
+      "answers": [
+        {
+          "answer": "Oui",
+          "right": true,
+          "img": "/assets/img/2/fidélité-cadenas-couple.svg"
+        },
+        {
+          "answer": "Non",
+          "right": false,
+          "img": "/assets/img/2/fidélité-cadenas-seul.svg"
+        }
+      ],
+      "answer": {
+        "answer": "Oui",
+        "percentage": "100",
+        "img": "/assets/img/2/réponse-oui.svg"
+      }
+    },
+    {
+      "question": "La majorité des jeunes ont-ils <br/> pécho grâce aux réseaux ?",
+      "answers": [
+        {
+          "answer": "Oui",
+          "right": false,
+          "img": "/assets/img/3/réseaux-tel-couple.svg"
+        },
+        {
+          "answer": "Non",
+          "right": true,
+          "img": "/assets/img/3/réseaux-tel-seul.svg"
+        }
+      ],
+      "answer": {
+        "answer": "Oui",
+        "percentage": "61.9",
+        "img": "/assets/img/3/réponse-non.svg"
+      }
+    },
+    {
+      "question": "Penses-tu que la majorité <br/> des jeunes veulent se marier ?",
+      "answers": [
+        {
+          "answer": "Oui",
+          "right": true,
+          "img": "/assets/img/4/fidèle-oui.svg"
+        },
+        {
+          "answer": "Non",
+          "right": false,
+          "img": "/assets/img/4/fidèle-non.svg"
+        }
+      ],
+      "answer": {
+        "answer": "Oui",
+        "percentage": "47.7",
+        "img": "/assets/img/4/réponse-oui-mariage.svg"
+      }
+    },
+    {
+      "question": "Penses-tu que les jeunes <br/> veulent des enfants ?",
+      "answers": [
+        {
+          "answer": "Oui",
+          "right": true,
+          "img": "/assets/img/5/ovaire.svg"
+        },
+        {
+          "answer": "Non",
+          "right": false,
+          "img": "/assets/img/5/capote.svg"
+        }
+      ],
+      "answer": {
+        "answer": "Oui",
+        "percentage": "71.4",
+        "img": "/assets/img/5/réponse-oui-bebe.svg"
+      }
+    },
+    {
+      "question": "Le sexe est-il important <br/> dans la vie des jeunes ?",
+      "answers": [
+        {
+          "answer": "Oui",
+          "right": true,
+          "img": "/assets/img/6/zizi-content.svg"
+        },
+        {
+          "answer": "Non",
+          "right": false,
+          "img": "/assets/img/6/zizi-triste.svg"
+        }
+      ],
+      "answer": {
+        "answer": "Oui",
+        "percentage": "88.1",
+        "img": "/assets/img/6/réponse-oui-sexe.svg"
+      }
+    }
+  ]
+}
