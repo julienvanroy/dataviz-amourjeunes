@@ -20,13 +20,13 @@ export default class Scoring extends Component {
                 <h1>Peu importe les chiffres <br/> suivez votre cœur !</h1>
                 <div className="flex row">
                     <img src="/assets/img/1/amour-oui.svg" />
-                    <img src="/assets/img/2/fidélité-cadenas-couple.svg" />
-                    <img src="/assets/img/3/réseaux-tel-seul.svg" />
+                    <img src="/assets/img/2/fidelite-cadenas-couple.svg" />
+                    <img src="/assets/img/3/reseaux-tel-seul.svg" />
                     <div className={"cercle "+this.colorCercle()+"flex column reverse"}>
                         <div>{this.state.score}/{this.state.nbQuestions}</div>
                         <div>score</div>
                     </div>
-                    <img src="/assets/img/4/fidèle-oui.svg" />
+                    <img src="/assets/img/4/fidele-oui.svg" />
                     <img src="/assets/img/5/ovaire.svg" />
                     <img src="/assets/img/6/zizi-content.svg" />
                 </div>

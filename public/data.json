@@ -18,7 +18,7 @@
       "answer": {
         "answer": "Oui",
         "percentage": "92.9",
-        "img": "/assets/img/1/réponse-oui-amour.svg"
+        "img": "/assets/img/1/reponse-oui-amour.svg"
       }
     },
     {
@@ -27,18 +27,18 @@
         {
           "answer": "Oui",
           "right": true,
-          "img": "/assets/img/2/fidélité-cadenas-couple.svg"
+          "img": "/assets/img/2/fidelite-cadenas-couple.svg"
         },
         {
           "answer": "Non",
           "right": false,
-          "img": "/assets/img/2/fidélité-cadenas-seul.svg"
+          "img": "/assets/img/2/fidelite-cadenas-seul.svg"
         }
       ],
       "answer": {
         "answer": "Oui",
         "percentage": "100",
-        "img": "/assets/img/2/réponse-oui.svg"
+        "img": "/assets/img/2/reponse-oui.svg"
       }
     },
     {
@@ -47,18 +47,18 @@
         {
           "answer": "Oui",
           "right": false,
-          "img": "/assets/img/3/réseaux-tel-couple.svg"
+          "img": "/assets/img/3/reseaux-tel-couple.svg"
         },
         {
           "answer": "Non",
           "right": true,
-          "img": "/assets/img/3/réseaux-tel-seul.svg"
+          "img": "/assets/img/3/reseaux-tel-seul.svg"
         }
       ],
       "answer": {
         "answer": "Oui",
         "percentage": "61.9",
-        "img": "/assets/img/3/réponse-non.svg"
+        "img": "/assets/img/3/reponse-non.svg"
       }
     },
     {
@@ -67,18 +67,18 @@
         {
           "answer": "Oui",
           "right": true,
-          "img": "/assets/img/4/fidèle-oui.svg"
+          "img": "/assets/img/4/fidele-oui.svg"
         },
         {
           "answer": "Non",
           "right": false,
-          "img": "/assets/img/4/fidèle-non.svg"
+          "img": "/assets/img/4/fidele-non.svg"
         }
       ],
       "answer": {
         "answer": "Oui",
         "percentage": "47.7",
-        "img": "/assets/img/4/réponse-oui-mariage.svg"
+        "img": "/assets/img/4/reponse-oui-mariage.svg"
       }
     },
     {
@@ -98,7 +98,7 @@
       "answer": {
         "answer": "Oui",
         "percentage": "71.4",
-        "img": "/assets/img/5/réponse-oui-bebe.svg"
+        "img": "/assets/img/5/reponse-oui-bebe.svg"
       }
     },
     {
@@ -118,7 +118,7 @@
       "answer": {
         "answer": "Oui",
         "percentage": "88.1",
-        "img": "/assets/img/6/réponse-oui-sexe.svg"
+        "img": "/assets/img/6/reponse-oui-sexe.svg"
       }
     }
   ]
