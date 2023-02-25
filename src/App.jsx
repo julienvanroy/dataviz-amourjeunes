@@ -1,34 +1,39 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import {CSSTransition, TransitionGroup} from 'react-transition-group';
+import Home from "./pages/Home";
+import Question from "./pages/Question";
+import Answer from "./pages/Answer";
+import Scoring from "./pages/Scoring";
+import OnlyDesktop from "./components/OnlyDesktop";
+
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
+    return (
+        <div>
+            <BrowserRouter>
+                <div>
+                    <Route render={({location}) => (
+                        <TransitionGroup>
+                            <CSSTransition
+                                key={location.key}
+                                timeout={450}
+                                classNames="fade"
+                            >
+                                <Switch location={location}>
+                                    <Route exact={true} path='/' component={Home}/>
+                                    <Route exact={true} path='/:questionId/question' component={Question}/>
+                                    <Route exact={true} path='/:questionId/answer' component={Answer}/>
+                                    <Route exact={true} path='/scoring' component={Scoring}/>
+                                    <Route path="*" component={Home}/>
+                                </Switch>
+                            </CSSTransition>
+                        </TransitionGroup>
+                    )}/>
+                </div>
+            </BrowserRouter>
+            <OnlyDesktop/>
+        </div>
+    );
 }
 
-export default App
+export default App;
