@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
-import {Link, Redirect} from "react-router-dom";
+import {Link, redirect} from "react-router-dom";
 import axios from "axios";
 import Score from "../components/Score.jsx";
-import ReactImageFallback from "react-image-fallback";
 import CountUp from 'react-countup';
 import Answer1 from "../components/Answer1.jsx";
 import Answer2 from "../components/Answer2.jsx";
@@ -20,27 +19,18 @@ export default class Answer extends Component {
             id: this.props.match.params.questionId,
             question: null,
             answer: null,
-            error: false,
             scoring: false,
             score: (localStorage.getItem('score') ? parseInt(localStorage.getItem('score')) : 0),
             scroll: false
         };
     }
 
-    renderRedirect = () => {
-        if (this.state.error) {
-            return <Redirect to="/404"/>
-        }
-    };
-
     async componentDidMount() {
         window.addEventListener('scroll', this.classScroll, true);
         const questionId = this.props.match.params.questionId;
         const data = (await axios.get('/data.json')).data;
         if (data.questions[questionId - 1] === undefined) {
-            this.setState({
-                error: true
-            })
+            return redirect(`/404`);
         } else {
             if (data.questions[questionId] === undefined) {
                 this.setState({
@@ -180,13 +170,12 @@ export default class Answer extends Component {
     render() {
         return (
             <div className={"answer answer__" + this.state.id}>
-                {this.renderRedirect()}
                 <div className="answer__content">
                     <h1 dangerouslySetInnerHTML={{__html: this.state.question}}/>
                     <div className="response">
-                        <ReactImageFallback className="response__img"
+                        <img className="response__img"
                                             src={this.state.answer !== null ? this.state.answer.img : ""}
-                                            fallbackImage="/assets/img/stop.svg"/>
+                                            alt="response"/>
                         {this.renderCount()}
                     </div>
                     {this.renderAnswer4()}

@@ -1,4 +1,7 @@
-import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import {
+    createBrowserRouter,
+    RouterProvider,
+} from "react-router-dom";
 import {CSSTransition, TransitionGroup} from 'react-transition-group';
 import Home from "./pages/Home.jsx";
 import Question from "./pages/Question.jsx";
@@ -8,31 +11,49 @@ import OnlyDesktop from "./components/OnlyDesktop.jsx";
 
 
 function App() {
+    const router = createBrowserRouter([
+        {
+            path: "/",
+            element: <Home />,
+            exact: true
+        },
+        {
+            path: "/:questionId/question",
+            element: <Question />,
+            exact: true
+
+        },
+        {
+            path: "/:questionId/answer",
+            element: <Answer />,
+            exact: true
+
+        },
+        {
+            path: "/scoring",
+            element: <Scoring />,
+            exact: true
+
+        },
+        {
+            path: "*",
+            element: <Home />,
+        },
+    ]);
+
     return (
-        <div>
-            <BrowserRouter>
-                <div>
-                    <Route render={({location}) => (
-                        <TransitionGroup>
-                            <CSSTransition
-                                key={location.key}
-                                timeout={450}
-                                classNames="fade"
-                            >
-                                <Switch location={location}>
-                                    <Route exact={true} path='/' component={Home}/>
-                                    <Route exact={true} path='/:questionId/question' component={Question}/>
-                                    <Route exact={true} path='/:questionId/answer' component={Answer}/>
-                                    <Route exact={true} path='/scoring' component={Scoring}/>
-                                    <Route path="*" component={Home}/>
-                                </Switch>
-                            </CSSTransition>
-                        </TransitionGroup>
-                    )}/>
-                </div>
-            </BrowserRouter>
+        <>
+            <TransitionGroup>
+                <CSSTransition
+                    key={location.key}
+                    timeout={450}
+                    classNames="fade"
+                >
+                    <RouterProvider router={router}/>
+                </CSSTransition>
+            </TransitionGroup>
             <OnlyDesktop/>
-        </div>
+        </>
     );
 }
 

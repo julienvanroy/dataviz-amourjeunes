@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import axios from "axios";
-import {Redirect} from "react-router-dom";
-import ReactImageFallback from "react-image-fallback";
+import {redirect} from "react-router-dom";
 import Score from "../components/Score.jsx";
 
 export default class Question extends Component {
@@ -11,27 +10,16 @@ export default class Question extends Component {
             id: null,
             question: null,
             answers: [],
-            error: false,
-            answered: false,
             score: (localStorage.getItem('score') ? parseInt(localStorage.getItem('score')) : 0)
         };
     }
 
-    renderRedirect = () => {
-        if (this.state.error) {
-            return <Redirect to="/404"/>
-        }else if (this.state.answered) {
-            return <Redirect to={"../"+this.state.id+"/answer"}/>
-        }
-    };
-
     async componentDidMount() {
+        console.log(this.props)
         const questionId = this.props.match.params.questionId;
         const data = (await axios.get('/data.json')).data;
         if (data.questions[questionId - 1] === undefined) {
-            this.setState({
-                error: true
-            })
+            return redirect(`/404`);
         } else {
             let question = data.questions[questionId - 1].question;
             let answers = data.questions[questionId - 1].answers;
@@ -49,19 +37,16 @@ export default class Question extends Component {
         localStorage.setItem('rightAnswer', myAnswer[0].right);
         localStorage.setItem('score', myAnswer[0].right === true ? this.state.score+1 : this.state.score);
         localStorage.setItem('nbQuestions', localStorage.getItem('nbQuestions') ? parseInt(localStorage.getItem('nbQuestions')) + 1 : 0);
-        this.setState({
-            answered: true
-        })
+        return redirect(`../${this.state.id}/answer`);
     }
 
     render() {
         return (
             <div className={"question question__"+this.state.id}>
-                {this.renderRedirect()}
                 <h1 dangerouslySetInnerHTML={{__html: this.state.question}} />
                 <form className="flex answers">
-                    {this.state.answers.map((answer, index) => <button key={index} onClick={ ev => this.handleAnswer(ev, answer.answer) }><ReactImageFallback
-                        src={answer.img} fallbackImage="/assets/img/stop.svg"/></button>)}
+                    {this.state.answers.map((answer, index) => <button key={index} onClick={ ev => this.handleAnswer(ev, answer.answer) }><img
+                        src={answer.img} alt="answer"/></button>)}
                 </form>
                 <Score score={this.state.score}/>
             </div>
