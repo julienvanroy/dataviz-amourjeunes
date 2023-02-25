@@ -1,15 +1,15 @@
 import React, {Component} from 'react';
 import {Link, Redirect} from "react-router-dom";
 import axios from "axios";
-import Score from "../components/Score";
+import Score from "../components/Score.jsx";
 import ReactImageFallback from "react-image-fallback";
 import CountUp from 'react-countup';
-import Answer1 from "../components/Answer1";
-import Answer2 from "../components/Answer2";
-import Answer3 from "../components/Answer3";
-import Answer4 from "../components/Answer4";
-import Answer5 from "../components/Answer5";
-import Answer6 from "../components/Answer6";
+import Answer1 from "../components/Answer1.jsx";
+import Answer2 from "../components/Answer2.jsx";
+import Answer3 from "../components/Answer3.jsx";
+import Answer4 from "../components/Answer4.jsx";
+import Answer5 from "../components/Answer5.jsx";
+import Answer6 from "../components/Answer6.jsx";
 import VisibilitySensor from "react-visibility-sensor";
 
 

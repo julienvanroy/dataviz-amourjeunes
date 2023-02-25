@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import axios from "axios";
 import {Redirect} from "react-router-dom";
 import ReactImageFallback from "react-image-fallback";
-import Score from "../components/Score";
+import Score from "../components/Score.jsx";
 
 export default class Question extends Component {
     constructor(props) {

@@ -1,10 +1,10 @@
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import {CSSTransition, TransitionGroup} from 'react-transition-group';
-import Home from "./pages/Home";
-import Question from "./pages/Question";
-import Answer from "./pages/Answer";
-import Scoring from "./pages/Scoring";
-import OnlyDesktop from "./components/OnlyDesktop";
+import Home from "./pages/Home.jsx";
+import Question from "./pages/Question.jsx";
+import Answer from "./pages/Answer.jsx";
+import Scoring from "./pages/Scoring.jsx";
+import OnlyDesktop from "./components/OnlyDesktop.jsx";
 
 
 function App() {
