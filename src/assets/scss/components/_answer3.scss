@@ -1,0 +1,103 @@
+.answer {
+  &__3 {
+    .response__img {
+       max-height: 275px;
+    }
+    .detail {
+      max-width: 1280px;
+      width: 100%;
+      margin: 0;
+      height: 975px;
+      padding: 0;
+      >.cercle {
+        &:first-child {
+          width: 975px;
+          height: 975px;
+          position: absolute;
+          top: 0;
+          left: -575px;
+          >div {
+            width: 50%;
+            margin-left: auto;
+            &:first-child{
+              margin-top: auto;
+              font-size: 10rem;
+            }
+            &:last-child {
+              margin-bottom: auto;
+              font-size: 2.4rem;
+            }
+          }
+        }
+        &:nth-child(2) {
+          width: 500px;
+          height: 500px;
+          position: absolute;
+          top: 260px;
+          left: 200px;
+          right: 0;
+          margin: auto;
+          >div {
+            &:first-child{
+              margin-top: auto;
+              font-size: 6.5rem;
+            }
+            &:last-child {
+              margin-bottom: auto;
+              font-size: 2.2rem;
+            }
+          }
+        }
+      }
+      >.flex {
+        &.list {
+          position: absolute;
+          top: 180px;
+          left: 675px;
+          right: 0;
+          margin: auto;
+          >.cercle{
+            &:nth-child(2), &:nth-child(5){
+              left: 75px;
+            }
+            &:nth-child(3), &:nth-child(4){
+              margin: 10px auto;
+              left: 115px;
+            }
+            &:last-child,&:first-child{
+              margin: auto;
+              left: -15px;
+            }
+            &:last-child {
+              &:after {
+                content: '!?';
+                position: absolute;
+                top: 60px;
+                right: 0;
+                font-family: carlmarx, sans-serif;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 3rem;
+              }
+            }
+          }
+        }
+        >.cercle{
+          margin: 5px auto;
+          position: relative;
+          &.cercle__1 {
+            width: 100px;
+            height: 100px;
+            background: $red-light;
+            text-align: center;
+            >div {
+              margin: auto;
+              font-family: 'Helvetica', sans-serif;
+              font-size: 1rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}

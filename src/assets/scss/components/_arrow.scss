@@ -1,0 +1,34 @@
+.arrow {
+  background: $grey url("../../img/fleche.svg") center no-repeat;
+  background-size: contain;
+  width: 30px;
+  height: 30px;
+  display: block;
+  margin: auto;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  animation-name: slide;
+  -webkit-animation-duration: 1.5s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-name: slide;
+  @-webkit-keyframes slide {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      -webkit-transform: translateX(8px);
+      transform: translateX(8px);
+    }
+  }
+  @keyframes slide {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      -webkit-transform: translateX(8px);
+      transform: translateX(8px);
+    }
+  }
+}

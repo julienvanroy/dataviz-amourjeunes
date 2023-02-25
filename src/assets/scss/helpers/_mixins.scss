@@ -1,0 +1,66 @@
+@mixin media($media){
+  // Code pour les grand écrans d'ordinateurs
+  @if $media == "large-desktop"{
+    @media screen and (min-width: #{$desktop}) {
+      @content;
+    }
+  }
+  // Code pour les écrans d'ordinateurs et +
+  @if $media == "desktop"{
+    @media screen and (min-width: #{$tablet}) {
+      @content;
+    }
+  }
+  // Code uniquement pour les écrans de tablette
+  @if $media == "only-tablet"{
+    @media screen and (min-width: #{$mobile}) and (max-width: #{$tablet}) {
+      @content;
+    }
+  }
+  // Code pour les écrans de tablette et -
+  @if $media == "tablet"{
+    @media screen and (max-width: #{$tablet}) {
+      @content;
+    }
+  }
+  // Code uniquement pour les écrans mobile
+  @if $media == "mobile"{
+    @media screen and (max-width: #{$mobile}) {
+      @content;
+    }
+  }
+  // Code uniquement pour les écrans en format paysage
+  @if $media == "landscape"{
+    @media screen and (orientation: landscape) {
+      @content;
+    }
+  }
+  // Code uniquement pour l'impression
+  @if $media == "print"{
+    @media print {
+      @content;
+    }
+  }
+}
+// Ordre à la quel les medias doivent être écrite :
+/* Plus grand au plus petit
+
+  large-desktop = très grand
+  desktop       = grand
+  tablet        = moyen
+  only-tablet   = only moyen
+  mobile        = only petit
+  landscape    = spécial
+  print         = spécial
+
+*/
+/* @USAGE
+    @include media('mobile'){
+      // code
+    };
+
+    @include media('tablet'){
+      // code
+    };
+    ...
+*/

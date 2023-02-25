@@ -1,0 +1,138 @@
+.answer {
+  &__6 {
+    .detail {
+      >.flex {
+        margin: 25vh 0;
+        .cercle {
+          >div {
+            &:first-child {
+              margin-top: auto;
+            }
+            &:last-child{
+              margin-bottom: auto;
+            }
+          }
+          &:first-child {
+            width: 500px;
+            height: 500px;
+            margin-left: 0;
+            margin-right: 0;
+            >div {
+              &:first-child {
+                font-size: 10rem;
+              }
+              &:last-child{
+                font-size: 3rem;
+              }
+            }
+          }
+        }
+        &:first-child{
+          .cercle {
+            &:nth-child(2){
+              width: 175px;
+              height: 175px;
+              margin: auto 150px;
+              background: $red-center;
+
+              >div {
+                &:first-child {
+                  font-size: 4rem;
+                }
+                &:last-child{
+                  font-size: 1.3rem;
+                }
+              }
+            }
+            &:nth-child(3){
+              width: 150px;
+              height: 150px;
+              background: $red-light;
+              margin: auto 0;
+              >div {
+                &:first-child {
+                  font-size: 3.2rem;
+                }
+                &:last-child{
+                  font-size: 1.2rem;
+                }
+              }
+            }
+          }
+        }
+        &:nth-child(2){
+          .cercle {
+            &:nth-child(2){
+              width: 300px;
+              height: 300px;
+              margin-left: 100px;
+              margin-right: 100px;
+              background: $red-center;
+              >div {
+                &:first-child {
+                  font-size: 5.8rem;
+                }
+                &:last-child{
+                  font-size: 1.9rem;
+                }
+              }
+            }
+          }
+          > .flex {
+            text-align: center;
+            .cercle{
+              width: 20px;
+              height: 20px;
+              background: $red-light;
+              margin: auto auto 0;
+
+              >div {
+                &:first-child {
+                  font-size: 3.2rem;
+                }
+                &:last-child{
+                  font-size: 1.2rem;
+                }
+              }
+            }
+            .text {
+              margin: 10px auto auto;
+            }
+          }
+        }
+        &:nth-child(3){
+          .cercle {
+            &:nth-child(2){
+              width: 400px;
+              height: 400px;
+              margin: auto 50px;
+              background: $red-center;
+
+              >div {
+                &:first-child {
+                  font-size: 8rem;
+                }
+                &:last-child{
+                  font-size: 2.4rem;
+                }
+              }
+            }
+            &:nth-child(3){
+              margin: auto 0;
+              >div {
+                >div {
+                  &:first-child {
+                    font-size: 3.3rem;
+                  }
+                }
+                &:last-child{
+                  font-size: 1.1rem;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+@import "helpers/variables";
+@import "helpers/mixins";
+@import "helpers/keyframes";
+
+@import "common/index";
+@import "common/transition";
+
+@import "components/icon-scroll";
+@import "components/score";
+@import "components/onlyDesktop";
+@import "components/btn";
+@import "components/arrow";
+@import "components/forme";
+@import "components/cercle";
+
+@import "pages/home";
+@import "pages/question";
+@import "pages/answer";
+@import "pages/scoring";
+
+@import "components/answer1";
+@import "components/answer2";
+@import "components/answer3";
+@import "components/answer4";
+@import "components/answer5";
+@import "components/answer6";

@@ -1,0 +1,114 @@
+.answer {
+  &__2 {
+    .detail {
+      max-width: 1150px;
+      margin: 50px auto;
+      .chiffre {
+        > div {
+          &:first-child {
+            font-family: carlmarx, sans-serif;
+            font-style: normal;
+            font-weight: 400;
+            span {
+              font-family: carlmarx, sans-serif;
+              font-style: normal;
+              font-weight: 400;
+            }
+          }
+        }
+      }
+      > .data {
+        background: url("../../img/2/cercle.svg") center no-repeat;
+        background-size: contain;
+        width: 650px;
+        height: 650px;
+        font-family: carlmarx, sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        &:before {
+          content: '!!!';
+          font-size: 13rem;
+          position: absolute;
+          top: -70px;
+          left: 330px;
+        }
+        &:after {
+          content: '';
+          width: 150px;
+          height: 150px;
+          background: url("../../img/2/bonhomme.svg") center no-repeat;
+          background-size: contain;
+          position: absolute;
+          top: 525px;
+          right: 300px;
+          z-index: 1;
+        }
+        .chiffre {
+          position: absolute;
+          >div {
+            &:first-child {
+              font-size: 7rem;
+            }
+            &:last-child {
+              font-size: 2.4rem;
+            }
+          }
+          &:first-child {
+            top: 175px;
+            left: 50px;
+          }
+          &:last-child {
+            bottom: 150px;
+            right: 25px;
+          }
+        }
+      }
+      > .cercle {
+        position: absolute;
+        top: 0;
+        left: 800px;
+        &.cercle__2{
+          background-color: $blue-light;
+          width: 250px;
+          height: 250px;
+          > div {
+            &:first-child{
+              margin-top: auto;
+              font-size: 4.4rem;
+            }
+            &:last-child {
+              margin-bottom: auto;
+              font-size: 1.5rem;
+            }
+          }
+        }
+      }
+      > .forme {
+        position: absolute;
+        top: 300px;
+        left: 840px;
+        &.forme__2{
+          background: url("../../img/2/forme.svg") center no-repeat;
+          background-size: contain;
+          width: 275px;
+          height: 275px;
+          > div {
+            &:first-child{
+              margin-top: auto;
+            }
+            > div {
+              &:first-child{
+                margin-top: auto;
+                font-size: 4rem;
+              }
+            }
+            &:last-child {
+              margin-bottom: auto;
+              font-size: 1.3rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}

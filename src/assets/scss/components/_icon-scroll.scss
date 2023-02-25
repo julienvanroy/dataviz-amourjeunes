@@ -1,0 +1,57 @@
+.icon-scroll,
+.icon-scroll:before {
+  position: absolute;
+}
+
+.icon-scroll {
+  bottom: 50px;
+  right: 12px;
+  width: 40px;
+  height: 70px;
+  box-shadow: inset 0 0 0 1px $grey;
+  background: $grey;
+  border-radius: 25px;
+  opacity: 1;
+  transition: .6s;
+  &.none{
+    opacity: 0;
+  }
+}
+
+.icon-scroll:before {
+  content: '';
+  width: 20px;
+  height: 20px;
+  background: grey;
+  left: 10px;
+  top: 8px;
+  border-radius: 50%;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  animation-name: scroll;
+  -webkit-animation-duration: 1.5s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-name: scroll;
+}
+
+@-webkit-keyframes scroll {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(38px);
+    transform: translateY(38px);
+  }
+}
+
+@keyframes scroll {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(38px);
+    transform: translateY(38px);
+  }
+}

@@ -1,0 +1,42 @@
+.answer {
+  min-height: 100vh;
+  position: relative;
+  margin: 0 80px;
+  &__content {
+    position: relative;
+    height: 100vh;
+  }
+  .response {
+    position: relative;
+    margin-top: 100px;
+
+    @media screen and (max-height: 850px) {
+      margin-top: 0;
+    }
+
+    &__img {
+      max-height: 300px;
+      display: block;
+      margin: auto;
+    }
+    &__text {
+      padding-top: 0;
+      text-align: center;
+      margin: auto;
+      display: block;
+      position: absolute;
+      top: 200px;
+      left: 0;
+      right: 0;
+      font-size: 12rem;
+      > * {
+        font-family: carlmarx, sans-serif;
+        font-style: normal;
+        font-weight: 400;
+      }
+    }
+  }
+  .detail {
+    padding-bottom: 50px;
+  }
+}

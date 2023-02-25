@@ -1,0 +1,18 @@
+.btn {
+  max-width: 200px;
+  text-align: center;
+  padding: 5px 10px;
+  display: block;
+  line-height: 1;
+  border: none;
+  cursor: pointer;
+  background: $grey;
+  &__arrow {
+    min-width: 55px;
+    max-width: 55px;
+    border-radius: 25px;
+    position: absolute;
+    right: 0;
+    bottom: 25px;
+  }
+}

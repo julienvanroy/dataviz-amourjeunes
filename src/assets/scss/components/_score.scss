@@ -1,0 +1,41 @@
+.score {
+  > span {
+    transform: rotate(90deg);
+    max-width: 225px;
+    width: 100%;
+    position: absolute;
+    top: 180px;
+    right: -115px;
+    font-size: 1.5rem;
+  }
+  .progress {
+    display: flex;
+    height: 1rem;
+    overflow: hidden;
+    font-size: .75rem;
+    background-color: $blue;
+    border-radius: 50px;
+    transform: rotate(-90deg);
+    max-width: 225px;
+    width: 100%;
+    position: absolute;
+    top: 180px;
+    right: -80px;
+    &.zero{
+      background: $grey;
+    }
+    &-bar {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      color: #fff;
+      text-align: center;
+      white-space: nowrap;
+      background-color: $red;
+      -webkit-transition: width .6s ease;
+      transition: width .6s ease;
+      transform: rotate(180deg)
+    }
+  }
+
+}

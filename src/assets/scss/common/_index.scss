@@ -1,0 +1,42 @@
+html body {
+  margin: 0;
+  overflow-x: hidden;
+  * {
+    font-family: 'Helvetica', sans-serif;
+  }
+
+  .relative {
+    position: relative;
+  }
+
+  h1,h2,h3 {
+    margin: 0;
+    font-family: carlmarx, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 6.8rem;
+    width: 100%;
+  }
+
+  h1 {
+    width: 95%;
+    line-height: 1.2;
+    padding-top: 60px;
+  }
+
+  .flex {
+    display: flex;
+    &.column {
+      flex-direction: column;
+      &.reverse {
+        flex-direction: column-reverse;
+      }
+    }
+    &.row {
+      flex-direction: row;
+    }
+    &.wrap {
+      flex-wrap: wrap;
+    }
+  }
+}

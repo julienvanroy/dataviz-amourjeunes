@@ -1,0 +1,151 @@
+.answer {
+  &__4 {
+    .detail {
+      max-width: 1300px;
+      margin: 125px auto auto;
+      > .flex {
+        >.flex.column{
+          width: 100%;
+          margin: auto;
+          &:first-child {
+            .cercle__1{
+              &:first-child{
+                width: 500px;
+                height: 500px;
+                margin-right: 0;
+                >div{
+                  &:first-child{
+                    margin-top: auto;
+                    font-size: 8rem;
+                  }
+                  &:last-child {
+                    margin-bottom: auto;
+                    font-size: 2.8rem;
+                  }
+                }
+              }
+              &:last-child{
+                width: 320px;
+                height: 320px;
+                margin-top: -25px;
+                margin-left: 0;
+                >div{
+                  &:first-child{
+                    margin-top: auto;
+                    font-size: 8rem;
+                  }
+                  &:last-child {
+                    margin-bottom: auto;
+                    font-family: 'Helvetica', sans-serif;
+                    font-size: 1.6rem;
+                    position: relative;
+                    &:before {
+                      content: '!!!';
+                      position: absolute;
+                      bottom: 130px;
+                      right: 40px;
+                      font-size: 12rem;
+                      font-family: carlmarx, sans-serif;
+                      font-style: normal;
+                      font-weight: 400;
+                    }
+                  }
+                }
+              }
+            }
+          }
+          &:last-child {
+            .cercle__2{
+              &:first-child{
+                width: 450px;
+                height: 450px;
+                margin-top: 25px;
+                >div{
+                  &:first-child{
+                    margin-top: auto;
+                    font-size: 8rem;
+                  }
+                  &:last-child {
+                    margin-bottom: auto;
+                    font-size: 2.8rem;
+                  }
+                }
+              }
+              &:last-child{
+                width: 320px;
+                height: 320px;
+                margin-top: 0;
+                margin-left: 0;
+                >div{
+                  &:first-child{
+                    margin-top: auto;
+                    font-size: 8rem;
+                  }
+                  &:last-child {
+                    margin-bottom: auto;
+                    font-family: 'Helvetica', sans-serif;
+                    font-size: 1.6rem;
+                    position: relative;
+                    &:before {
+                      content: '?!';
+                      position: absolute;
+                      bottom: 130px;
+                      right: 90px;
+                      font-size: 12rem;
+                      font-family: carlmarx, sans-serif;
+                      font-style: normal;
+                      font-weight: 400;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      &.other {
+        position: absolute;
+        bottom: 50px;
+        left: 0;
+        h2{
+          position: relative;
+          z-index: 10;
+          font-size: 5.3rem;
+          top: -70px;
+          left: 30px;
+        }
+        .cercle {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          >div{
+            &:first-child {
+              margin-bottom: auto;
+              font-size: 3rem;
+            }
+            &:last-child {
+              margin-top: auto;
+              font-size: 1rem;
+            }
+          }
+          &:nth-child(2){
+            width: 150px;
+            height: 150px;
+          }
+          &:last-child{
+            width: 120px;
+            height: 120px;
+            left: 120px;
+            bottom: 40px;
+            >div {
+              &:first-child {
+                margin-bottom: auto;
+                font-size: 2.8rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
