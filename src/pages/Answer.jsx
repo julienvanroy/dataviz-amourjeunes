@@ -16,7 +16,7 @@ export default class Answer extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            id: this.props.match.params.questionId,
+            id: this.props.questionId,
             question: null,
             answer: null,
             scoring: false,
@@ -27,7 +27,7 @@ export default class Answer extends Component {
 
     async componentDidMount() {
         window.addEventListener('scroll', this.classScroll, true);
-        const questionId = this.props.match.params.questionId;
+        const questionId = this.props.questionId;
         const data = (await axios.get('/data.json')).data;
         if (data.questions[questionId - 1] === undefined) {
             return redirect(`/404`);

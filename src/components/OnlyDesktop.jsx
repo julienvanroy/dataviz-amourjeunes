@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import stop from '../assets/img/stop.svg';
 
 export default class OnlyDesktop extends Component {
     render() {
@@ -10,7 +9,7 @@ export default class OnlyDesktop extends Component {
                     <p>Ce site n'est disponible <br/> que sur grand écran.</p>
                     <p>Je t'invite à le consulter <br/> sur ton ordinateur.</p>
                 </div>
-                <img src={stop} alt="Mince"/>
+                <img src="/assets/img/stop.svg" alt="Mince"/>
             </div>
         )
     }

@@ -25,7 +25,7 @@
           position: relative;
           &:before{
             content: '';
-            background: url("../../img/5/bebe.svg") center no-repeat;
+            background: url("/assets/img/5/bebe.svg") center no-repeat;
             background-size: contain;
             height: 200px;
             width: 200px;
@@ -35,7 +35,7 @@
           }
           &:after{
             content: '';
-            background: url("../../img/5/1,7_bebe.svg") center no-repeat;
+            background: url("/assets/img/5/1,7_bebe.svg") center no-repeat;
             background-size: contain;
             height: 200px;
             width: 200px;

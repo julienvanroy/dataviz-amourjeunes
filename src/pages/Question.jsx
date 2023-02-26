@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import axios from "axios";
 import {redirect} from "react-router-dom";
 import Score from "../components/Score.jsx";
+import data from '../data.json'
 
 export default class Question extends Component {
     constructor(props) {
@@ -15,9 +15,7 @@ export default class Question extends Component {
     }
 
     async componentDidMount() {
-        console.log(this.props)
-        const questionId = this.props.match.params.questionId;
-        const data = (await axios.get('/data.json')).data;
+        const questionId = this.props.questionId;
         if (data.questions[questionId - 1] === undefined) {
             return redirect(`/404`);
         } else {

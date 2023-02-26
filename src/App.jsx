@@ -18,8 +18,8 @@ function App() {
             exact: true
         },
         {
-            path: "/:questionId/question",
-            element: <Question />,
+            path: "/1/question",
+            element: <Question questionId={1} />,
             exact: true
 
         },
