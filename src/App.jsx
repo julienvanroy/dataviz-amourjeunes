@@ -18,13 +18,13 @@ function App() {
             exact: true
         },
         {
-            path: "/1/question",
-            element: <Question questionId={1} />,
+            path: "/:idUrl/question",
+            element: <Question />,
             exact: true
 
         },
         {
-            path: "/:questionId/answer",
+            path: "/:idUrl/answer",
             element: <Answer />,
             exact: true
 

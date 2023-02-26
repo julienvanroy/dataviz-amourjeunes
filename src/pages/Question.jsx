@@ -1,55 +1,33 @@
-import React, {Component} from 'react';
-import {redirect} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import Score from "../components/Score.jsx";
 import data from '../data.json'
+import Home from "./Home.jsx";
 
-export default class Question extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            id: null,
-            question: null,
-            answers: [],
-            score: (localStorage.getItem('score') ? parseInt(localStorage.getItem('score')) : 0)
-        };
+const Question = () => {
+    const {idUrl} = useParams();
+    const index = idUrl - 1;
+    const question = data.questions[index]?.question
+    const answers = data.questions[index]?.answers
+    const score = (localStorage.getItem('score') ? parseInt(localStorage.getItem('score')) : 0)
+
+    const handleAnswer = (value) => {
+        const myAnswer = answers.filter((answer) => answer.answer === value);
+        localStorage.setItem('score', myAnswer[0].right === true ? score + 1 : score);
+        localStorage.setItem('nbQuestions', idUrl);
     }
 
-    async componentDidMount() {
-        const questionId = this.props.questionId;
-        if (data.questions[questionId - 1] === undefined) {
-            return redirect(`/404`);
-        } else {
-            let question = data.questions[questionId - 1].question;
-            let answers = data.questions[questionId - 1].answers;
-            this.setState({
-                id: questionId,
-                question,
-                answers
-            });
-        }
-    }
-
-    handleAnswer (ev, value) {
-        ev.preventDefault()
-        let myAnswer = this.state.answers.filter((answer) => answer.answer === value);
-        localStorage.setItem('rightAnswer', myAnswer[0].right);
-        localStorage.setItem('score', myAnswer[0].right === true ? this.state.score+1 : this.state.score);
-        localStorage.setItem('nbQuestions', localStorage.getItem('nbQuestions') ? parseInt(localStorage.getItem('nbQuestions')) + 1 : 0);
-        return redirect(`../${this.state.id}/answer`);
-    }
-
-    render() {
-        return (
-            <div className={"question question__"+this.state.id}>
-                <h1 dangerouslySetInnerHTML={{__html: this.state.question}} />
-                <form className="flex answers">
-                    {this.state.answers.map((answer, index) => <button key={index} onClick={ ev => this.handleAnswer(ev, answer.answer) }><img
-                        src={answer.img} alt="answer"/></button>)}
-                </form>
-                <Score score={this.state.score}/>
+        return question && answers ? (
+            <div className={`question question__${idUrl}`}>
+                <h1 dangerouslySetInnerHTML={{__html: question}} />
+                <div className="flex answers">
+                    {answers.map((answer, index) => <Link to={`/${idUrl}/answer`} key={index} onClick={ () => handleAnswer(answer.answer) }><img
+                        src={answer.img} alt="answer"/></Link>)}
+                </div>
+                <Score score={score}/>
             </div>
-        );
-    }
+        ) : (<Home />);
 }
+
+export default Question;
 
 
