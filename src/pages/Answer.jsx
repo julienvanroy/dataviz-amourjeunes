@@ -1,6 +1,4 @@
-import React, {Component} from 'react';
-import {Link, redirect} from "react-router-dom";
-import axios from "axios";
+import {Link, useParams} from "react-router-dom";
 import Score from "../components/Score.jsx";
 import CountUp from 'react-countup';
 import Answer1 from "../components/Answer1.jsx";
@@ -10,109 +8,67 @@ import Answer4 from "../components/Answer4.jsx";
 import Answer5 from "../components/Answer5.jsx";
 import Answer6 from "../components/Answer6.jsx";
 import VisibilitySensor from "react-visibility-sensor";
+import data from "../data.json";
+import {useEffect, useState} from "react";
+import Home from "./Home.jsx";
 
 
-export default class Answer extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            id: this.props.questionId,
-            question: null,
-            answer: null,
-            scoring: false,
-            score: (localStorage.getItem('score') ? parseInt(localStorage.getItem('score')) : 0),
-            scroll: false
+const Answer = () => {
+    const {idUrl} = useParams();
+    const index = idUrl - 1;
+    const question = data.questions[index]?.question
+    const answer = data.questions[index]?.answer
+    const score = (localStorage.getItem('score') ? parseInt(localStorage.getItem('score')) : 0)
+    const nbQuestions = localStorage.getItem('nbQuestions') ? parseInt(localStorage.getItem('nbQuestions')) : 0
+
+    const [scroll, setScroll] = useState(false)
+
+    const handleScroll = () => {
+        setScroll(document.documentElement.scrollTop > 0)
+    };
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
         };
-    }
+    }, [])
 
-    async componentDidMount() {
-        window.addEventListener('scroll', this.classScroll, true);
-        const questionId = this.props.questionId;
-        const data = (await axios.get('/data.json')).data;
-        if (data.questions[questionId - 1] === undefined) {
-            return redirect(`/404`);
-        } else {
-            if (data.questions[questionId] === undefined) {
-                this.setState({
-                    scoring: true
-                })
-            }
-            let question = data.questions[questionId - 1].question;
-            let answer = data.questions[questionId - 1].answer;
-            this.setState({
-                question,
-                answer
-            });
-        }
-    }
-
-    componentWillUnmount() {
-        window.removeEventListener('scroll', this.classScroll);
-    }
-
-    nextQuestion() {
-        if (this.state.scoring === true) {
-            return (
-                <Link className="btn btn__arrow" to="/scoring">
-                    <i className="arrow"/>
-                </Link>
-            );
-        } else return (
-            <Link className="btn btn__arrow" to={"../" + (parseInt(this.state.id) + 1) + "/question"}>
-                <i className="arrow"/>
-            </Link>
-        );
-    }
-
-    renderAnswerId = () => {
-        if (parseInt(this.state.id) === 1) {
+    const renderAnswerId = () => {
+        if (parseInt(idUrl) === 1) {
             return (
                 <Answer1/>
             );
         }
-        if (parseInt(this.state.id) === 2) {
+        if (parseInt(idUrl) === 2) {
             return (
                 <Answer2/>
             );
         }
-        if (parseInt(this.state.id) === 3) {
+        if (parseInt(idUrl) === 3) {
             return (
                 <Answer3/>
             );
         }
-        if (parseInt(this.state.id) === 4) {
+        if (parseInt(idUrl) === 4) {
             return (
                 <Answer4/>
             );
         }
-        if (parseInt(this.state.id) === 5) {
+        if (parseInt(idUrl) === 5) {
             return (
                 <Answer5/>
             );
         }
-        if (parseInt(this.state.id) === 6) {
+        if (parseInt(idUrl) === 6) {
             return (
                 <Answer6/>
             );
         }
     };
 
-    renderCount = () => {
-        if (parseInt(this.state.id) !== 2) {
-            return (<h2 className="response__text"><CountUp start={0}
-                                                            end={this.state.answer !== null ? parseFloat(this.state.answer.percentage) : 0}
-                                                            duration={2.75}
-                                                            useEasing={true} decimals={1} decimal=","/> %</h2>)
-        } else {
-            return (<h2 className="response__text"><CountUp start={0}
-                                                            end={this.state.answer !== null ? parseInt(this.state.answer.percentage) : 0}
-                                                            duration={2.75}
-                                                            useEasing={true}/> %</h2>)
-        }
-    };
-
-    renderAnswer4 = () => {
-        if (parseInt(this.state.id) === 4) {
+    const renderAnswer4 = () => {
+        if (parseInt(idUrl) === 4) {
             return (
                 <div className="detail other">
                     <h2>mais</h2>
@@ -155,38 +111,31 @@ export default class Answer extends Component {
         }
     };
 
-    classScroll = () => {
-        if (document.documentElement.scrollTop > 0 && !this.state.scroll) {
-            this.setState({
-                scroll: true
-            })
-        } else if (document.documentElement.scrollTop <= 0 && this.state.scroll) {
-            this.setState({
-                scroll: false
-            })
-        }
-    };
-
-    render() {
-        return (
-            <div className={"answer answer__" + this.state.id}>
+        return question && answer ? (
+            <div className={"answer answer__" + idUrl}>
                 <div className="answer__content">
-                    <h1 dangerouslySetInnerHTML={{__html: this.state.question}}/>
+                    <h1 dangerouslySetInnerHTML={{__html: question}}/>
                     <div className="response">
                         <img className="response__img"
-                                            src={this.state.answer !== null ? this.state.answer.img : ""}
+                                            src={answer.img || ""}
                                             alt="response"/>
-                        {this.renderCount()}
+                        <h2 className="response__text"><CountUp start={0}
+                                                                end={parseFloat(answer.percentage)}
+                                                                duration={2.75}
+                                                                useEasing={true} decimals={1} decimal=","/> %</h2>
                     </div>
-                    {this.renderAnswer4()}
-                    <Score score={this.state.score}/>
-                    <div className={this.state.scroll ? "icon-scroll none" : "icon-scroll"}/>
+                    {renderAnswer4()}
+                    <Score score={score} />
+                    <div className={scroll ? "icon-scroll none" : "icon-scroll"}/>
                 </div>
-                {this.renderAnswerId()}
-                {this.nextQuestion()}
+                {renderAnswerId()}
+                <Link className="btn btn__arrow" to={data.questions[idUrl] ? `../${(parseInt(idUrl) + 1)}/question` : "/scoring"}>
+                    <i className="arrow"/>
+                </Link>
             </div>
-        );
-    }
+        ) : (<Home/>);
 }
+
+export default Answer;
 
 

@@ -6,7 +6,7 @@ const Score = ({score}) => {
 
     return (
         <div className="score">
-            <ProgressBar className={nbQuestions <= 0 ? 'zero' : ''} now={now} label={nbQuestions > 0 ? `${parseInt(this.score())}%` : null}/>
+            <ProgressBar className={nbQuestions <= 0 ? 'zero' : ''} now={now} label={nbQuestions > 0 ? `${parseInt(now)}%` : null}/>
             <span>score</span>
         </div>
     )

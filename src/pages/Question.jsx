@@ -12,8 +12,8 @@ const Question = () => {
 
     const handleAnswer = (value) => {
         const myAnswer = answers.filter((answer) => answer.answer === value);
-        localStorage.setItem('score', myAnswer[0].right === true ? score + 1 : score);
-        localStorage.setItem('nbQuestions', idUrl);
+        localStorage.setItem('score', myAnswer[0].right === true ? parseInt(score) + 1 : score);
+        localStorage.setItem('nbQuestions',  parseInt(idUrl));
     }
 
         return question && answers ? (
@@ -23,7 +23,7 @@ const Question = () => {
                     {answers.map((answer, index) => <Link to={`/${idUrl}/answer`} key={index} onClick={ () => handleAnswer(answer.answer) }><img
                         src={answer.img} alt="answer"/></Link>)}
                 </div>
-                <Score score={score}/>
+                <Score score={score} />
             </div>
         ) : (<Home />);
 }
